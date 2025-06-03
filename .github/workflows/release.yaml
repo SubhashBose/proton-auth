@@ -45,6 +45,7 @@ jobs:
           goos: ${{ matrix.goos }}
           goarch: ${{ matrix.goarch }}
           goversion: "1.23"
+          build_command: "CGO_ENABLED=0 go build"
           ldflags: "-extldflags=-static -w -s -buildid="
           release_tag: ${{ needs.create-release.outputs.tagname }}
           asset_name: "${{ steps.bin_name.outputs.Name }}_${{ matrix.goos }}-${{ matrix.goarch }}"
